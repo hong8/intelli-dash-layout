@@ -297,6 +297,14 @@ var currenteditor = null;
 $(window).resize(function() {
 	$("body").css("min-height", $(window).height() - 90);
 	$(".demo").css("min-height", $(window).height() - 160)
+	var dr = $(".view > .droped-row");
+	var drSize = dr.size() - 1;
+	dr.css("min-height", ($(window).height() / drSize) - (200/drSize) )
+	
+	var dc = $(".view > .droped-row > .droped-column");
+	var dcSize = dc.size() - 1;
+	dc.css("min-height", dc.parent().height() - 50 )
+	
 });
 
 function restoreData(){
@@ -328,7 +336,7 @@ $(document).ready(function() {
 	CKEDITOR.disableAutoInline = true;
 	restoreData();
 	var contenthandle = CKEDITOR.replace( 'contenteditor' ,{
-		language: 'zh-cn',
+		language: 'en',
 		contentsCss: ['css/bootstrap-combined.min.css'],
 		allowedContent: true
 	});
